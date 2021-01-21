@@ -13,7 +13,7 @@ const geringozo = function(str){
             case "i" : newStr = newStr.concat(str.charAt(index) + "p" + str.charAt(index))
                 break
             case "U" : 
-            case "u" : newStr = !isSpecialCase() ? newStr.concat(str.charAt(index)) + "p" + str.charAt(index) : newStr.concat(str.charAt(index))
+            case "u" : newStr = !isSpecialCase(index, str) ? newStr.concat(str.charAt(index)) + "p" + str.charAt(index) : newStr.concat(str.charAt(index))
                 break
             default : newStr += str.charAt(index)
         }
@@ -24,9 +24,9 @@ const geringozo = function(str){
 module.exports = geringozo
 
 const isSpecialCase = function(index, str){
-    let validIndex = index-2 >= 0
+    let validIndex = index-1 >= 0
     if (validIndex){
-        return str.charAt(index-1) == "u" && (str.charAt(index-2) == "q" || str.charAt(index-2) == "g")
+        return (str.charAt(index-1) == "q" || str.charAt(index-1) == "g")
     }  
     return false
 }
