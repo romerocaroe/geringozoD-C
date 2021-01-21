@@ -1,8 +1,8 @@
 const geringozo = function(str){
-
-    var newStr = ""
+    var newString = ""
     for (let index = 0;index < str.length;index++){
-        switch(str.charAt(index)){
+        let character = str.charAt(index);
+        switch(character){
             case "a" : 
             case "o" : 
             case "e" :
@@ -10,15 +10,15 @@ const geringozo = function(str){
             case "O" : 
             case "E" :
             case "I" :
-            case "i" : newStr = newStr.concat(str.charAt(index) + "p" + str.charAt(index))
+            case "i" : newString = newString.concat(character + "p" + character)
                 break
             case "U" : 
-            case "u" : newStr = !isSpecialCase(index, str) ? newStr.concat(str.charAt(index)) + "p" + str.charAt(index) : newStr.concat(str.charAt(index))
+            case "u" : newString = !isSpecialCase(index, str) ? newString.concat(character) + "p" + character : newString.concat(character)
                 break
-            default : newStr += str.charAt(index)
+            default : newString += str.charAt(index)
         }
     }
-    return newStr
+    return newString
 }
 
 module.exports = geringozo
